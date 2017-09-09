@@ -1,0 +1,13 @@
+// Main Content Layout
+.task-size {
+  margin:0;
+  @include column(75);
+  padding:1rem;
+
+}
+.new-task {
+  @include column(25);
+  padding:1rem;
+  font-size: $h1-size;
+  text-align: right;
+}

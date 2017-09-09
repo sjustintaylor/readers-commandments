@@ -1,0 +1,48 @@
+// Buttons
+// --Big Button (New Day)
+.text-button {
+  min-width: 80%;
+  height:36px;
+  margin:12px;
+  display: block;
+  @include block-center();
+
+  border-radius: 2px;
+  font-size: $p-size;
+  padding-left:16px;
+  padding-right: 16px;
+  background-color: $accent-color;
+  color:$accent-text-color;
+  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    -webkit-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+
+  &:active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
+// --Icon Button (add task, settings)
+.icon-button {
+
+}
+
+// --Add Task
+
+// --New Day
+
+// --Settings
+
+
+// Text Input (settings - name)
+
+// Checkbox/slider thingy (settings - carry over)
