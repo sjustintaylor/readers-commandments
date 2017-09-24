@@ -13,8 +13,8 @@
 
 <body>
   <header class="row title-bar">
-    <h2 class="header-title">Hello, Nimrod</h2>
-    <i class="material-icons settings-toggle">settings</i>
+    <h2 class="header-title">Hello, friend</h2>
+    <i class="material-icons settings-toggle">edit</i>
     <div class="settings-draw">
       <p>
         settings shit here.
@@ -27,46 +27,21 @@
     <p class="text-center">
       Today I will accomplish the following:
     </p>
-    <section class="row">
-      <header class="row">
+
+    <section class="task-container">
+      <section class="row task-titlebar">
         <h1 class="task-size">Big Tasks:</h1>
-        <i class="material-icons new-task">add_circle_outline</i>
-      </header>
-      <section class="task-list">
-        <div class="task-card">
-          <i class="material-icons task-status">check_box_outline_blank</i>
-          <h2 class="task-title">Task title</h2>
+        <i class="material-icons new-task" id="add-task-big">add_circle_outline</i>
+      </section>
+      <section class="row task-list-container">
+        <div class="add-task-drawer" id="big-drawer">
+          <h2>Add Task</h2>
+          <input type="text" class="text-input" placeholder="Task description" />
+          <button type="button" class="text-button">Add task</button>
         </div>
-
       </section>
     </section>
 
-    <section class="row">
-      <header class="row">
-        <h1 class="task-size">Medium Tasks:</h1>
-        <i class="material-icons new-task">add_circle_outline</i>
-      </header>
-      <section class="task-list">
-        <div class="task-card">
-          <i class="material-icons task-status">check_box_outline_blank</i>
-          <h2 class="task-title">Task title</h2>
-        </div>
-
-      </section>
-    </section>
-    <section class="row">
-      <header class="row">
-        <h1 class="task-size">Small Tasks:</h1>
-        <i class="material-icons new-task">add_circle_outline</i>
-      </header>
-      <section class="task-list">
-        <div class="task-card">
-          <i class="material-icons task-status">check_box_outline_blank</i>
-          <h2 class="task-title">Task title</h2>
-        </div>
-
-      </section>
-    </section>
   </main>
 
   <footer class="row">

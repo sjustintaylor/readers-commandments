@@ -32,18 +32,23 @@
     box-shadow: none;
   }
 }
-// --Icon Button (add task, settings)
-.icon-button {
 
-}
-
-// --Add Task
-
-// --New Day
-
-// --Settings
 
 
 // Text Input (settings - name)
-
+.text-input {
+  border: none;
+  border-bottom: 1px solid #757575;
+  padding-left: 2px;
+  font-size: $h2-size;
+  font-weight: 400;
+  &::placeholder {
+    font-size: $h2-size;
+    font-weight: 400;
+  }
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid #5264AE;
+  }
+}
 // Checkbox/slider thingy (settings - carry over)
