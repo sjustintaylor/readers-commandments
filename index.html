@@ -12,40 +12,42 @@
 </head>
 
 <body>
-  <header class="row title-bar">
-    <h2 class="header-title">Hello, friend</h2>
-    <i class="material-icons settings-toggle">edit</i>
-    <div class="settings-draw">
-      <p>
-        settings shit here.
-      </p>
-    </div>
+  <header class="title-bar">
+    <h2>Hello, friend</h2>
   </header>
 
-  <main class="row">
-    <button type="button" class="text-button">New Day</button>
-    <p class="text-center">
-      Today I will accomplish the following:
-    </p>
-
-    <section class="task-container">
-      <section class="row task-titlebar">
-        <h1 class="task-size">Big Tasks:</h1>
-        <i class="material-icons new-task" id="add-task-big">add_circle_outline</i>
-      </section>
-      <section class="row task-list-container">
-        <div class="add-task-drawer" id="big-drawer">
-          <h2>Add Task</h2>
-          <input type="text" class="text-input" placeholder="Task description" />
-          <button type="button" class="text-button">Add task</button>
-        </div>
-      </section>
+  <main class="container">
+    <section class="row" id="task-list">
+      <h1 class="task-title">Tasks</h1>
+      <div class="task" id="123456">
+        <!-- The id is unique to the task, uses js datestamp -->
+        <span class="check-task">
+          <i class="material-icons check-task-icon">check_box_outline_blank</i>
+        </span>
+        <p class="task-description">
+          Call mom
+        </p>
+        <span class="remove-task">
+          <i class="material-icons remove-task-icon">close</i>
+        </span>
+      </div>
     </section>
-
+    <section class="row">
+      <!-- The add task input goes here -->
+      <form class="add-task-controls">
+        <div class="group">
+          <input type="text" id="task-description-input" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Task description</label>
+        </div>
+        <button class="material-button" id="add-task" type="button"> Add Task</button>
+      </form>
+    </section>
   </main>
 
   <footer class="row">
-    <p class="text-center">
+    <p class=" footer-text">
       High five, you rule!
     </p>
   </footer>

@@ -1,24 +1,10 @@
-Data Structure.
 
-list: {
-  name: "Name Here"
-  transfer: True/False
-  big/medium/small:{
-    datestamp: ["task", boolStatus]
-  }
-  newDay: function () {
-    if transfer = true {
-      clear all true status tasks.
-    } else {
-      clear all tasks
-    }
-  }
-  addTask:
-  toggleStatus:
-  saveList: {
-    save to local storage
-  }
-}
+
+
+
+
+
+
 
 Sass Partials
 Main Layout

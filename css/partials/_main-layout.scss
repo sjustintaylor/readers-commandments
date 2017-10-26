@@ -1,65 +1,202 @@
-// Main Content Layout
-.task-size {
-  margin:0;
-  @include column(75);
-  padding:1rem;
+// The New List and Clean List buttons
+.material-button {
+  // Rewrite this shit with comments so I know wtf is going on
+  min-width:120px;
+  height:36px;
+  // margin:12px;
+  // display: block;
+  // @include block-center();
 
-}
-.new-task {
-  @include column(25);
-  padding:1rem;
-  font-size: 2rem; // Maybe do something else here
-  text-align: right;
+  border-radius: 2px;
+  font-size: $p-size;
+  $padding-l-r: 24px;
+  padding-left:$padding-l-r;
+  padding-right: $padding-l-r;
+  background-color: $accent-color;
+  color:$accent-text-color;
+  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    -webkit-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+
+  &:active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
 }
 
-.task-card {
-  //box shadow etc
-  @include row(95);
-  @include block-center();
-  border: 1px solid $accent-grey;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.16), 0 2px 6px rgba(0,0,0,0.23);
-  padding:1rem;
-  margin-bottom:0.8333rem;
-}
-.task-status {
-  @include column(15);
-  padding-left:0.625rem;
-  font-size: 1.5rem;
-}
+
 .task-title {
-  @include column(85);
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 1.5rem;
+  // The h1 tag that says "Tasks"
+  // margin:0;
 }
 
-.task-titlebar {
-  box-shadow: 0 10px 8px -8px rgba(0,0,0,0.19);
+// The task list items
+.task {
+  //the div that holds a single task
+
+  @include row(100);
+  padding: 0.3125rem;
+
 }
-
-.task-container {
-  @include row(95);
-  @include block-center();
-
-  box-shadow: 0px 5px 15px -2px rgba(0,0,0,0.50);
-  border: 1px solid $accent-grey;
-  border-bottom: none;
+.check-task {
+  // the checked off/not checked off box
+  @include column(7);
 }
-
-.add-task-drawer {
-  display:none;
-  text-align: center;
-  padding:0.625rem;
+.task-description {
+  @include column(83);
   padding-left: 1rem;
-  & input {
-    width:75%;
-    background-color: $accent-grey;
-  }
-  & h2 {
-    text-align: left;
-  }
+  margin:0;
+  font-size: $p-size + 0.125rem;
+}
+.remove-task {
+  @include column(10);
+  text-align: center;
+  text-decoration: 
+  // background-color:$accent-grey;
+}
+.remove-task-icon {
+  font-size:1.5rem;
+}
 
-  background-color: $accent-grey;
-  box-shadow: inset 0 -10px 8px -8px rgba(0,0,0,0.19), inset 0  10px 8px -8px  rgba(0,0,0,0.19);
+// The add task form
+//    Rewrite with comments. Copied from Scotch.io tutorial
+.add-task-controls {
+  margin-top:4.375rem;
+  text-align: center;
+}
+$input-width: 300px;
+.group {
+  position: relative;
+  margin-bottom: 25px;
+  margin-top:45px;
+}
+input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  margin-right: 0;
+  display: block;
+  width: $input-width;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+input:focus {
+  outline: none;
+}
 
+/* LABEL ======================================= */
+label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label,
+input:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #5264ae;
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+  position: relative;
+  display: block;
+  width: $input-width;
+}
+.bar:before,
+.bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5264ae;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.bar:before {
+  left: 50%;
+}
+.bar:after {
+  right: 50%;
+}
+
+/* active state */
+input:focus ~ .bar:before,
+input:focus ~ .bar:after {
+  width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+// The footer elements
+.footer-text {
+  // The footer text is pinned to the bottom of the screen and centered.
+  position:fixed;
+  bottom: 0;
+  width:90%;
+  text-align: center;
 }
