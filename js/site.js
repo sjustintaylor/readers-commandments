@@ -7,12 +7,12 @@ $(document).ready(function() {
     $('#task-description-input').val('')
   })
   $(document).on('click', '.check-task', function(){
-    var parentID = $(this).parent()[0].id
-    toggleCheckTask(parentID)
+
+    toggleCheckTask($(this).parent()[0].id)
   })
   $(document).on('click', '.remove-task', function(){
-    var parentID = $(this).parent()[0].id
-    removeTask(parentID)
+
+    removeTask($(this).parent()[0].id)
   })
 });
 
