@@ -60,7 +60,7 @@
 .remove-task {
   @include column(10);
   text-align: center;
-  text-decoration: 
+  //text-decoration: line-through;
   // background-color:$accent-grey;
 }
 .remove-task-icon {
