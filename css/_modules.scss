@@ -1,9 +1,9 @@
 // Definitions for Grid Primitives
 
-@mixin container($container-width){
+@mixin container($container-width, $container-height){
   width:percentage($container-width/100);
   max-width:75rem;
-  height:100vh;
+  height:$container-height;
   @include block-center();
 }
 @mixin row($row-width) {
