@@ -1,50 +1,52 @@
 $(document).ready(function() {
+  // Load the stored list, and clear the input field.
   loadList()
+  $('.task-controls input').val('');
 
-  $('.task-controls input').val('')
+  // Set event trigger for toggling the task's status
+  $('main').on('click', '.task', function(){
+    toggleTask(this.getAttribute('id'))
+  })
+  // Set event trigger for deleting the task
+  $('main').on('click', '.task > .remove', function(){
+    removeTask(this.parentNode.getAttribute('id'))
+  })
+
+  // Set the event trigger for adding a new task
   $('.task-controls button').on('click', function() {
     var taskID = generateID()
     addTask($('.task-controls input').val(), taskID)
     $('.task-controls input').val('')
-
-
-    // All the hammer events need to be moved out of this function, and added to a function that also processes the tasks loaded in by loadList
-    $('#' + taskID).hammer().bind("swipeleft swiperight", function(ev) {
-      $('#' + taskID).fadeOut("fast", function(){
-        removeTask(taskID)
-      })
-      // removeTask(taskID)
-
-    });
-    $('#' + taskID).hammer().bind("tap press", function(ev) {
-      toggleTask(taskID)
-    });
   })
 })
+
+
 
 function loadList() {
   // Loads the contents of the list object from localStorage.
   // Checks to see if 'list' object exists in local storage.
-  if (localStorage.getItem('list') == undefined) {
-    addTask('Go on an adventure...')
+  //Also sets up hammer listeners for stored ids
+  if (localStorage.getItem('list') == undefined || localStorage.getItem('list') == '') {
+    addTask('Go on an adventure...', generateID())
   } else {
     $("main").html(localStorage.getItem('list'))
   }
-
 }
 
+
 function saveList() {
-  // Because I'm a lazy fuck, this function basically saves the entire html contents of the main tag to local storage.
-  localStorage.setItem('list', $("main").html())
-  localStorage.setItem('listID', listID)
+  if($("main").html() === '      '){
+    localStorage.setItem('list', '')
+  } else {
+    localStorage.setItem('list', $("main").html())
+  }
 }
 
 function addTask(taskDescription, taskID) {
   if (taskDescription == '') {
-    alert("no task entered, crapsack")
+    alert("Enter a task, crapsack")
   } else {
-    $("main").append('<p class="task" id="' + taskID + '">' + taskDescription + '</p>')
-    appendID(taskID)
+    $("main").append('<p class="task" id="' + taskID + '">' + taskDescription + '<i class="material-icons remove">remove</i>' + '</p>')
     saveList()
   }
 }
@@ -55,12 +57,12 @@ function generateID() {
 
 function removeTask(taskID) {
   $("#" + taskID).remove()
+  saveList()
 }
 
 function toggleTask(taskID) {
   // Use a switch statement to check the current status. Then invert it.
   // Checked is just struck through text
-  console.log($("#" + taskID).css("text-decoration"))
   switch ($('html #' + taskID).css("text-decoration")) {
     case 'none solid rgb(0, 0, 0)':
       $('#' + taskID).css("text-decoration", 'line-through');
@@ -75,9 +77,5 @@ function toggleTask(taskID) {
       $('#' + taskID).css("text-decoration", 'none');
       break;
   }
-}
-
-function clearList() {
-  localStorage.setItem('list', '')
-  $("main").html('')
+  saveList()
 }
