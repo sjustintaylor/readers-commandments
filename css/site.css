@@ -11,55 +11,25 @@ body {
   left: 0;
   top: 0;
   font-size: 100%; }
-
-.title-bar {
-  width: 100%;
-  max-width: 75rem;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center; }
-
-.task-list {
-  width: 85%;
-  max-width: 75rem;
-  height: 75vh;
-  margin-left: auto;
-  margin-right: auto; }
-
-.task {
-  text-decoration: none;
-  border: 1px solid #000;
-  padding: 1rem; }
-
-.remove {
-  float: right; }
-
-.task-controls input {
-  border: none;
-  border-bottom: 1px solid #3C4C60;
-  width: 70%;
-  position: fixed;
-  margin: 25px;
-  bottom: 5px; }
-.task-controls button {
-  height: 56px;
-  width: 56px;
-  border: none;
-  border-radius: 50%;
-  background-color: #2196f3;
-  box-shadow: 0 6px 10px 0 #666;
-  transition: all 0.1s ease-in-out;
+h1{
   text-align: center;
-  position: fixed;
-  right: 25px;
-  bottom: 25px; }
-  .task-controls button i {
-    font-size: 24px;
-    color: #fff; }
-  .task-controls button:hover {
-    box-shadow: 0 6px 14px 0 #666; }
-  .task-controls button:active {
-    box-shadow: none; }
-
-/*# sourceMappingURL=site.css.map */
+}
+ul {
+  max-width: 500px;
+  margin:0 auto;
+  margin-top:3rem;
+  /* text-align: center; */
+}
+li {
+  list-style: none;
+  padding: 1rem;
+}
+i{
+  font-style: italic;
+}
+img{
+  max-width: 80%;
+  padding:0.5rem;
+  display:block;
+  margin:0 auto;
+}
