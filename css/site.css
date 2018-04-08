@@ -18,7 +18,6 @@ ul {
   max-width: 500px;
   margin:0 auto;
   margin-top:3rem;
-  /* text-align: center; */
 }
 li {
   list-style: none;
@@ -32,4 +31,63 @@ img{
   padding:0.5rem;
   display:block;
   margin:0 auto;
+}
+
+/* Animation classes */
+:root{
+  /* Animation Timings */
+  --duration: 3s;
+  --first: 2s;
+  --second: 3s;
+  --third: 4s;
+  --fourth: 5s;
+  --fifth: 6s;
+  --sixth: 7s;
+  --seventh: 8s;
+}
+
+.animate {
+  -webkit-animation-duration: var(--duration);
+          animation-duration: var(--duration);
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+          -webkit-animation-fill-mode: both;
+                  animation-fill-mode: both;
+}
+.animate:nth-of-type(1){
+  -webkit-animation-delay: var(--first);
+          animation-delay: var(--first);
+}
+.animate:nth-of-type(2){
+  -webkit-animation-delay: var(--second);
+          animation-delay: var(--second);
+}
+.animate:nth-of-type(3){
+  -webkit-animation-delay: var(--third);
+          animation-delay: var(--third);
+}
+.animate:nth-of-type(4){
+  -webkit-animation-delay:var(--fourth);
+          animation-delay: var(--fourth);
+}
+.animate:nth-of-type(5){
+  -webkit-animation-delay: var(--fifth);
+          animation-delay: var(--fifth);
+}
+.animate:nth-of-type(6){
+  -webkit-animation-delay: var(--sixth);
+          animation-delay: var(--sixth);
+}
+.animate:nth-of-type(7){
+  -webkit-animation-delay: var(--seventh);
+          animation-delay: var(--seventh);
+}
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
